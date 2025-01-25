@@ -1,0 +1,53 @@
+.App{
+    text-align: center;
+    margin: 2rem auto;
+    width: 100%;
+}
+.header h1{
+   font-size: 50px;
+   color: #1003ff;
+   text-shadow:2px 2px 2px #ffffff;
+}
+.score{
+    font-size: 30px;
+    color: #ffffff;
+}
+.score-list{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+.card button{
+    background-color: #282c34;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.card button:hover,.reset:hover{
+    background-color: #ffffff;
+    color: #282c34;
+}
+.reset{
+    background-color: #282c34;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.score-list h2{
+    color: #ffffff;
+}
+.score h2{
+    color: #ff0000;
+}
+
+.score h3{
+    color: #05ff26;
+}
