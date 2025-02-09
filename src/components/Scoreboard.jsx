@@ -11,12 +11,12 @@ const Scoreboard = () => {
     //   setScoreList([...scoreList, score]);  
     // },[score]);
 
-    const handleScore = (value) => {
+    const handleScore = (value,wk) => {
     if(wicket<10){
 
         setScore(score+value);
     if(scoreList.length<=5){
-        setScoreList([...scoreList,`${value}`]);
+        setScoreList([...scoreList,`${value || wk}`]);
     }
     else{
         setScoreList([0]);
@@ -45,7 +45,7 @@ const Scoreboard = () => {
     const handleWicket = () => {
          if(wicket<10){
             setWicket(wicket + 1);  
-            handleScore(0);
+            handleScore(0,'Wicket');
         }else{
             alert('Team All Out');
         }
