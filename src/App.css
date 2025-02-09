@@ -1,6 +1,6 @@
 .App{
     text-align: center;
-    margin: 2rem auto;
+    margin:auto;
     width: 100%;
 }
 .header h1{
@@ -12,10 +12,21 @@
     font-size: 30px;
     color: #ffffff;
 }
-.score-list{
+.score-box{
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.score-list{
+    height: 3rem;
+    width: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     gap: 10px;
+    overflow:hidden;
 }
 .card{
     display: flex;

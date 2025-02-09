@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Scoreboard = () => {
     const [score, setScore] = useState(0);
@@ -7,12 +7,21 @@ const Scoreboard = () => {
     const [balls, setBalls] = useState(0);
     const [scoreList, setScoreList] = useState([]);
 
-    useEffect(() => {
-      setScoreList([...scoreList, score]);  
-    },[score]);
+    // useEffect(() => {
+    //   setScoreList([...scoreList, score]);  
+    // },[score]);
 
     const handleScore = (value) => {
-    setScore(score + value);
+    if(wicket<10){
+
+        setScore(score+value);
+    if(scoreList.length<=5){
+        setScoreList([...scoreList,`${value}`]);
+    }
+    else{
+        setScoreList([0]);
+        setScoreList([`${value}`]);
+    }
    
     if(balls>4){ 
         setOvers(overs + 1);
@@ -20,20 +29,26 @@ const Scoreboard = () => {
     }else{
         setBalls(balls+1);
     }
-    
+    }else{
+        alert('Team All Out');
+    }
     };
 
     const handleReset = () => {
         setScore(0);
         setWicket(0);
         setOvers(0);
-        setScoreList([null]);
+        setScoreList([]);
         setBalls(0);
     };
 
     const handleWicket = () => {
-        setWicket(wicket + 1);
-        handleScore(0);
+         if(wicket<10){
+            setWicket(wicket + 1);  
+            handleScore(0);
+        }else{
+            alert('Team All Out');
+        }
     };
 
     return (
@@ -42,8 +57,7 @@ const Scoreboard = () => {
                 <h2>Score: {score}/{wicket}</h2>
             </div>
             <div className="score">
-                <h3>Overs: {overs}</h3>
-                <h3>Balls: {balls}</h3>
+                <h3>Overs: {overs}.{balls}</h3>             
             </div>
             <div className="card">
                 <button onClick={()=>handleScore(0)}>0</button>
@@ -54,12 +68,14 @@ const Scoreboard = () => {
                 <button onClick={()=>handleScore(6)}>6</button>
                 <button onClick={()=>handleWicket()}>Wicket</button>
             </div>
-            <div className='score-list'>
+           <div className='score-box'>
+           <div className='score-list'>
                 {scoreList.map((score, index) => (
                     <h2 key={index}>{score}</h2>
                 ))}
             </div>
-            <div>
+             </div>
+           <div>
                 <button className="reset" onClick={handleReset}>Reset</button>
             </div>
         </div>
