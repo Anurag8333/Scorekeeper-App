@@ -11,12 +11,22 @@ const Scoreboard = () => {
     //   setScoreList([...scoreList, score]);  
     // },[score]);
 
+    const handleValue=(value,wk)=>{
+       if(wk ==='Wicket'){
+        return wk;
+       }
+       return value;
+    }
+
     const handleScore = (value,wk) => {
     if(wicket<10){
 
         setScore(score+value);
     if(scoreList.length<=5){
-        setScoreList([...scoreList,`${value || wk}`]);
+        setScoreList([...scoreList,`${
+           handleValue(value,wk)
+            }`]);
+        wk='';
     }
     else{
         setScoreList([0]);
