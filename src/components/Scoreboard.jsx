@@ -40,7 +40,7 @@ const Scoreboard = () => {
         setBalls(balls+1);
     }
     }else{
-        alert('Team All Out');
+        alert('Team All Out and click on reset button to reset the score');
     }
     };
 
@@ -57,7 +57,7 @@ const Scoreboard = () => {
             setWicket(wicket + 1);  
             handleScore(0,'Wicket');
         }else{
-            alert('Team All Out');
+            alert('Team All Out and click on reset button to reset the score');
         }
     };
 
